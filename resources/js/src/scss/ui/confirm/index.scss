@@ -1,0 +1,143 @@
+@import '@/scss/variables.scss';
+
+$confirm-background-color: $popup-background-color; // $base-background-color; // rgb(102, 0, 165);
+
+.confirm-wrapper {
+  color:#fff;
+  // box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  .modal-ui-content-panel {
+    background-color: $confirm-background-color !important;
+  }
+
+  .confirmIcon {
+    fill: #f1f1f1;
+    stroke: #f1f1f1;
+    margin-right: 10px;
+  }
+
+  .panel-wrapper {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+
+    .panel-body-wrapper {
+      margin:20px;
+      flex:1;
+      align-items: center;
+      justify-content: center;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .confirm-body {
+      align-items: center;
+      justify-content: center;
+      font-size:20px;
+      display: flex;
+      flex-direction: column;
+      padding:5px 20px;
+      transition: all 0.2s ease;
+
+      div {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .confirm-desp {
+        padding-top:10px;
+        font-size: 0.65em;
+        color:#ccc;
+      }
+    }
+  }
+}
+
+.footer-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: static;
+  width:100%;
+  bottom:0;
+
+  button:first-child {
+    // border-radius: 0 0 0 0.25em;
+  }
+
+  button:last-child {
+    // border-radius: 0 0 0.25em 0;
+  }
+
+  button {
+    border:0px;
+    color:#fff;
+    background-color: $confirm-background-color;
+    flex:1;
+    height: 50px;
+    cursor: pointer;
+    font-size:14px;
+    transition: all 0.2s ease;
+
+    &.ok {
+      // background-color: $base-color;
+    }
+
+    &:hover {
+      background-color: $base-dark-color;
+    }
+
+    &:active {
+      opacity: 1;
+      background-color: $base-over-color;
+    }
+  }
+}
+
+.confirm-message {
+  color:red;
+  font-size: 16px;
+  font-weight: 400;
+  padding:5px;
+  letter-spacing: 0px;
+  flex:1;
+}
+
+.emphasize {
+  .confirm-body {
+    transition-delay: 0s;
+    transform: translateY(-15px);
+    transition: all 1s ease;
+    &:before {
+      font-size: 0.9em;
+      color: #ff1d1d;
+      opacity: 0;
+      content: attr(data-message);
+      position:absolute;
+      bottom:-30px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      animation: emphasize 0.2s linear 0.1s forwards ;
+    }
+  }
+}
+
+
+@keyframes emphasize {
+  0% {
+    transform: scale(1);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

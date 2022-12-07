@@ -1,0 +1,234 @@
+@import "@/scss/variables.scss";
+@import "@/scss/font.scss";
+@import "@/scss/checkbox.scss";
+
+@import "@/scss/ui/panel/index.scss";
+@import "@/scss/ui/btn/index.scss";
+@import "@/scss/ui/modal/index.scss";
+@import "@/scss/ui/confirm/index.scss";
+
+* {
+  box-sizing: border-box;
+  font-family: "SF Pro Display", "SF Pro Display Medium" ,"SFProKRDisplay", "Noto Sans KR";
+}
+
+body, html {
+  margin:0;
+  padding:0;
+  width:100%;
+  height:100vh;
+  background-color: $base-background-color;
+  color:#fff;
+  // overflow: hidden;
+}
+
+ul,li {
+  list-style: none;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}
+
+.rotate-270 {
+  transform: rotate(270deg);
+}
+
+.rotate-90 {
+  transform: rotate(90deg);
+}
+
+.block {
+  display: block;
+}
+
+.margin-10 {
+  margin:10px;
+}
+
+.font-size-12 {
+  font-size:12px;
+}
+
+.flex-start {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.flex-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: rgba(255,255,255,0.0);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 5px;
+  height:10px;
+  background: transparent;
+  margin-right:2px;
+  padding-right: 2px;
+}
+
+::-webkit-scrollbar-track {
+  // -webkit-box-shadow: inset 0 0 6px $base-color;
+  // background-color: $base-background-color;
+  margin-right: 2px;
+  padding-right: 2px;
+  // border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #000;
+}
+
+::-webkit-scrollbar-corner {
+  background-color: transparent;
+}
+
+@keyframes twinkle {
+  0% {
+    transform: scale(1, 1);
+    background: rgba(255,255,255,0.0);
+    animation-timing-function: ease-in;
+  }
+  60% {
+    transform: scale(0.8, 0.8);
+    background: rgba(255,255,255,1);
+    animation-timing-function: ease-out;
+  }
+  80% {
+    background: rgba(255,255,255,0.00);
+    transform: scale(1, 1);
+  }
+  100% {
+    background: rgba(255,255,255,0.0);
+    transform: scale(1, 1);
+  }
+}
+
+@keyframes hide-animation {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(0);
+    display: none;
+  }
+}
+
+// label.checkbox {
+//   @include checkbox($green);
+
+//   &.blue {
+//     @include checkbox($blue);
+//   }
+
+//   &.red {
+//     @include checkbox($red);
+//   }
+// }
+
+
+.top-navigator-wrapper {
+  padding:20px;
+  margin:20px;
+  background: transparent; //#309effd6;
+  min-height:90px;
+  display: flex;
+  align-items: center;
+  // justify-content: center;
+  border-radius: 5px;
+  // background-color: #000;
+  background: linear-gradient(270deg, $base-background-color 0%, rgba(40,40,40,1) 5%, rgba(74,42,111,0.9) 100%);
+  // border:1px solid #666;
+
+  .title-wrapper {
+    flex:1;
+    display: flex;
+    align-items: center;
+    position: relative;
+    // justify-content: center;
+    .home {
+      width: 45px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      .title {
+        transition: 0.2s;
+        opacity: 1;
+      }
+      &::before {
+        transition: 0.2s;
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='20' fill='white' viewBox='0 0 24 24'%3E%3Cpath d='M3 14.828v9.172h18v-9.172l-9-8.375-9 8.375zm11 7.172h-4v-6h4v6zm10-9.852l-1.361 1.465-10.639-9.883-10.639 9.868-1.361-1.465 12-11.133 12 11.148z'/%3E%3C/svg%3E");
+        position: absolute;
+        left: 12px;
+        width:20px;
+        height:20px;
+        opacity: 0;
+      }
+      &:hover {
+        .title {
+          opacity: 0;
+        }
+        &::before {
+          opacity: 1;
+        }
+      }
+    }
+    span {
+      padding: 0px 10px;
+      font-size: 14px;
+      font-weight: 400;
+      position: relative;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        text-decoration: underline;
+      }
+
+      &:not(:last-child)::after {
+        content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' fill='white' height='10' viewBox='0 0 24 24'%3E%3Cpath d='M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z'/%3E%3C/svg%3E");
+        position: absolute;
+        right:-14px;
+        top:7px;
+        width:20px;
+        height:20px;
+      }
+
+      &:last-child {
+        cursor: auto;
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .icon-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

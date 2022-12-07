@@ -1,0 +1,29 @@
+.btn-normal {
+  padding:10px 20px;
+  border:0px;
+  border-radius: 2px;
+  background-color: #444; // #555555;
+  color:#d5d5d5;
+  outline: none;
+  margin-right: 10px;
+  cursor: pointer;
+  // opacity: 0.8;
+  transition: 0.2s;
+  user-select: none;
+
+  &:hover {
+    // opacity: 1;
+    background-color: #555;
+    color: #fff;
+  }
+}
+
+.btnDiv {
+  display: flex;
+  align-items: center;
+}
+
+.btn-content {
+  margin: 0 0 0 5px;
+  padding: 0;
+}

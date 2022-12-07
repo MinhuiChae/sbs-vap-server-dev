@@ -1,0 +1,174 @@
+.panel-wrapper {
+  display: flex;
+  flex-direction: column;
+
+  .panel-header-wrapper {
+    height: 50px;
+    display: flex;
+    align-items: center;
+  }
+
+  .panel-body-wrapper {
+    margin-bottom:20px;
+  }
+}
+
+.grid-panel-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+  height:100%;
+  position: relative;
+  overflow:hidden;
+
+  .grid-panel-header-wrapper {
+    //display: flex;
+    //flex-direction: column;
+    //height:100%;
+    display: block;
+    position:relative;
+    .header-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  .grid-panel-body-wrapper {
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #444;
+    box-sizing: border-box;
+    height:100%;
+    overflow: hidden;
+
+    .body-wrapper {
+      height:100%;
+      display: flex;
+      flex-direction: column;
+      min-height: 0px;
+      overflow: hidden;
+
+      .grid-data-empty-text-wrapper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width:100%;
+        height:100%;
+      }
+    }
+  }
+}
+
+
+.body-table-wrapper {
+  box-sizing: border-box;
+  overflow:auto;
+  // overflow:overlay; 사파리, 파이어폭스 작동 X
+  flex:1;
+
+  .table-content-wrapper {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    table-layout: fixed;
+  }
+  .table-row {
+    min-height: 35px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #444;
+    }
+
+    &:hover {
+      background-color: #444;
+    }
+
+    td {
+      overflow: hidden;
+      .table-cell-inner {
+        user-select: none;
+        display: flex;
+        padding: 5px 10px;
+        align-items: center;
+
+        .table-cell-inner-content {
+          font-size:14px;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          width:100%;
+        }
+      }
+    }
+  }
+}
+
+
+.header-table-wrapper {
+  box-sizing: border-box;
+  border-bottom: 1px solid #444;
+  position: relative;
+  overflow: hidden;
+  .table-header-wrapper {
+    border-spacing: 0px 0px;
+    border-collapse: collapse;
+    box-sizing: border-box;
+    //border-bottom:1px solid #e2e2e2;
+    table-layout: fixed;
+  }
+
+  .table-row {
+    height: 50px;
+    box-sizing: border-box;
+    position: relative;
+
+    .table-cell {
+      display: table-cell;
+      position: relative;
+      min-width: 10px;
+      box-sizing: border-box;
+      user-select: none;
+      // overflow: hidden;
+
+      &:not(:last-child) {
+        border-right: 1px solid #444;
+      }
+
+      .table-cell-inner {
+        box-sizing: border-box;
+        padding: 5px 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        .table-cell-inner-content {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .column-resizer {
+        position: absolute;
+        width: 7px;
+        height: 100%;
+        right: -4px;
+        top: 0px;
+        background-color: transparent;
+        // background-color: red;
+        z-index: 1000;
+        &:hover {
+          cursor: col-resize;
+        }
+      }
+    }
+  }
+}
+
+
+
