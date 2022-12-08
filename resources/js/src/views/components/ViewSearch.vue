@@ -77,23 +77,21 @@
               </template>
             </div>
             <div class = 'content-row_tools'>
-              <div class="tooltip">
-                <RazorIcon class ='icon' v-bind:disabled="state.isMarkBtnDisabled" @click.stop.prevent = "onRazerItem($event, data)" />
-                <span class="tooltiptext tooltip-top">cut</span>
+              <div v-tooltip:top = "'cut'" >
+                <RazorIcon class ='icon' v-bind:disabled="state.isMarkBtnDisabled"  @click.stop.prevent = "onRazerItem($event, data)" />
               </div>
             </div>
             <div class = 'content-row_tools' :class = "isMarkedCss(data)" @click.stop.prevent="setMark(data)"> 
-              <div class="tooltip">
+              <div v-tooltip:top = "'mark'" >
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24">
                 <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
                 </svg>
-                <span class="tooltiptext tooltip-top">mark</span> 
+                
               </div>
             </div>
             <div class = 'content-row_tools'> 
-              <div class="tooltip">
+              <div v-tooltip:top = "'delete'" >
                 <CloseBtnIcon @click.stop.prevent = "onDeleteItem($event, data)" /> 
-                <span class="tooltiptext tooltip-top">delete</span>
               </div>
             </div>
           </div>
@@ -758,7 +756,7 @@ export default defineComponent({
       buildGridDataFn,
       onChangeFile,
       setStoreParams,
-      onRazerItem
+      onRazerItem,
     }
 
   },
@@ -1054,55 +1052,6 @@ input:focus , input:active {
       }
     }
   }
-
-
-.tooltip {
-  position: relative;
-  display: block;
-  width: 20px;
-  height: 20px;
-}
-
-.tooltip .tooltiptext {
-  visibility: hidden;
-  width: 70px;
-  background-color: rgb(111, 0, 255);
-  color: #fff;
-  font-size: 10px;
-  text-align: center;
-  border-radius: 6px;
-  padding: 5px 0;
-
-  position: absolute;
-  z-index: 1;
-}
-
-.tooltip:hover .tooltiptext {
-  visibility: visible;
-}
-
-.tooltip .tooltiptext::after {
-  content: " ";
-  position: absolute;
-  border-style: solid;
-  border-width: 5px;
-}
-
-.tooltip .tooltip-top {
-  width: 50px;
-  bottom: 150%;
-  left: 50%;
-  margin-left: -28px;
-}
-
-.tooltip .tooltip-top::after {
-  top: 100%;
-  left: 50%;
-  margin-left: -5px;
-  /* 사각형의 테두리에서 노출 */
-  border-color:  rgb(111, 0, 255) transparent transparent transparent;
-  
-}
 
 
 </style>

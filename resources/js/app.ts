@@ -8,9 +8,14 @@ import VueVirtualScroller from 'vue-virtual-scroller';
 
 import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
+import directives from "@/directives";
+
 
 
 const app = createApp(App);
+
+directives(app)
+
 app.use(VueVirtualScroller);
 app
 .use(Router)
