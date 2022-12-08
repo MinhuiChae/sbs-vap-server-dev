@@ -10,11 +10,15 @@ import 'vue-virtual-scroller/dist/vue-virtual-scroller.css'
 
 import directives from "@/directives";
 
+import FloatingVue from 'floating-vue'
+
 
 
 const app = createApp(App);
 
-directives(app)
+directives(app);
+
+app.use(FloatingVue);
 
 app.use(VueVirtualScroller);
 app

@@ -77,12 +77,12 @@
               </template>
             </div>
             <div class = 'content-row_tools'>
-              <div v-tooltip:top = "'cut'" >
+              <div v-tooltip="'cut'">
                 <RazorIcon class ='icon' v-bind:disabled="state.isMarkBtnDisabled"  @click.stop.prevent = "onRazerItem($event, data)" />
               </div>
             </div>
             <div class = 'content-row_tools' :class = "isMarkedCss(data)" @click.stop.prevent="setMark(data)"> 
-              <div v-tooltip:top = "'mark'" >
+              <div v-tooltip="'mark'">
                 <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24">
                 <path d="M9 21.035l-9-8.638 2.791-2.87 6.156 5.874 12.21-12.436 2.843 2.817z"/>
                 </svg>
@@ -90,7 +90,7 @@
               </div>
             </div>
             <div class = 'content-row_tools'> 
-              <div v-tooltip:top = "'delete'" >
+              <div v-tooltip="'delete'">
                 <CloseBtnIcon @click.stop.prevent = "onDeleteItem($event, data)" /> 
               </div>
             </div>
@@ -129,6 +129,8 @@ import Store from '@/composition/lib/storeClass';
 import fileListIcon from '@/components/icons/fileListIcon.vue';
 import markerIcon from '@/components/icons/markerIcon.vue';
 import RazorIcon from '@/components/icons/razorIcon.vue';
+import 'floating-vue/dist/style.css';
+
 
 export default defineComponent({
   name: 'viewSearch',
@@ -1053,5 +1055,7 @@ input:focus , input:active {
     }
   }
 
-
+  .v-popper--theme-my-theme .v-popper__inner {
+    background: red;
+  }
 </style>
