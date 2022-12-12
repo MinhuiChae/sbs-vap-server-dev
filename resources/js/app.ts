@@ -18,7 +18,13 @@ const app = createApp(App);
 
 directives(app);
 
-app.use(FloatingVue);
+app.use(FloatingVue, {
+  themes: {
+    'info-tooltip' : {
+      $extend: 'tooltip'
+    }
+  }
+});
 
 app.use(VueVirtualScroller);
 app

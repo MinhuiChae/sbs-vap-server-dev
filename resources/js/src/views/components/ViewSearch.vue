@@ -355,7 +355,6 @@ export default defineComponent({
     }
 
     const init = () => {
-
       state.datasMap = new Map<string, any>(); // 초기화
       let contents_ids: string[] = [];
       _state.datas.forEach((item) => {
@@ -1055,7 +1054,19 @@ input:focus , input:active {
     }
   }
 
-  .v-popper--theme-my-theme .v-popper__inner {
-    background: red;
+  .v-popper__wrapper {
+    .v-popper__inner {
+      background: rgb(111, 0, 255);
+    }
+
+    .v-popper__arrow-inner {
+      visibility: visible;
+      border-color: rgb(111, 0, 255);
+    }
+
+    .v-popper__arrow-outer {
+      border-color: rgb(111, 0, 255);
+    }
   }
+
 </style>
